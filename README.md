@@ -1,33 +1,48 @@
 # Financial Econometrics Research
 
-A Python project exploring equity market exposure and the relationship between
-macroeconomic conditions and equity returns. This repository presents a portfolio
-overview of the work.
+Python analysis of Siemens' daily exposure to the DAX and macroeconomic
+associations with equity returns in an eight-country monthly panel. The notebook
+examines historical associations with explicit assumptions and limitations.
 
-The analysis combines a daily equity market study with a monthly panel of
-national equity returns. It examines market sensitivity, variation over time and
-macroeconomic associations, with attention to statistical uncertainty and the
-limitations of observational financial data.
+The analysis includes:
 
-The project involved:
+- OLS market exposure, HAC inference, residual diagnostics and beta stability.
+- Pooled and fixed-effects panel models with lagged macroeconomic variables.
+- Euro-area NEER slope comparisons and country-clustered inference.
+- Driscoll–Kraay covariance and global-recession-year sensitivity checks.
+- Matched-sample comparisons using supplementary total-return indices.
+- Leave-one-country-out diagnostics, residual correlations and CR2 sensitivity.
 
-- Preparing financial time series and aligning observations across sources.
-- Implementing regression analysis and panel models in Python.
-- Assessing residual behaviour, inference assumptions and sample sensitivity.
-- Checking sample sizes, numerical results and sequential notebook execution.
-- Presenting estimates, diagnostics and limitations in an academic notebook.
+Open [the analysis notebook](analysis.ipynb) to inspect the implementation,
+equations, validation checks, interpretation and references.
 
-The Python workflow uses pandas and NumPy for data preparation, statsmodels and
-SciPy for statistical analysis, and Matplotlib for figures. The notebook was
-organised into focused analytical stages, with reusable functions where they
-improved readability and validation checks for important transformations.
+The workflow uses pandas, NumPy, SciPy, statsmodels and Matplotlib. All 43 code
+cells were executed sequentially in a fresh Python 3.13 kernel using the supplied
+local workbook. All 22 analytical tables matched the previously executed working
+notebook at displayed precision. Thirteen existing CSV exports also matched after
+parsing, with zero numerical differences. The software-version table differs
+because the verification environment uses different package versions, recorded in
+`requirements.txt`. The committed notebook has cleared outputs.
 
-These skills are relevant to financial research, quantitative analysis and
-reproducible analytical reporting. The econometric results require careful
-interpretation because associations in observational data can reflect omitted
-factors and uncertainty in model assumptions.
+To reproduce the analysis, supply an authorised workbook as described in
+[the data requirements](data/README.md), then run:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe run_analysis.py
+```
+
+The runner saves the executed notebook, tables and figures under
+`analysis_outputs/`. Reproduction requires access to the input data.
 
 Developed as individual university coursework, with assistive AI used for coding
-and presentation support. Publication of the full implementation and analysis is
-subject to clarification of assessment sharing and data permissions.
+and presentation support. Course and external methodological references are
+retained in the notebook.
 
+The publication copy is based on the submission-named notebook saved on
+17 November 2026.
+Its workbook path was adjusted for this repository, its title and data-location
+instructions were updated, and saved outputs and metadata were cleared. Four
+quoted Bloomberg price levels were removed from the source-verification prose.
+The analytical code differs from that source only in the input-file path.
