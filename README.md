@@ -36,13 +36,5 @@ python -m venv .venv
 The runner saves the executed notebook, tables and figures under
 `analysis_outputs/`. Reproduction requires access to the input data.
 
-Developed as individual university coursework, with assistive AI used for coding
-and presentation support. Course and external methodological references are
-retained in the notebook.
-
-The publication copy is based on the submission-named notebook saved on
-17 November 2026.
-Its workbook path was adjusted for this repository, its title and data-location
-instructions were updated, and saved outputs and metadata were cleared. Four
-quoted Bloomberg price levels were removed from the source-verification prose.
-The analytical code differs from that source only in the input-file path.
+Developed as individual university coursework. Course and external methodological
+references are retained in the notebook.
