@@ -1,30 +1,45 @@
 # Financial Econometrics Research
 
-Python analysis of Siemens' daily exposure to the DAX and macroeconomic
-associations with equity returns in an eight-country monthly panel. The notebook
-examines historical associations with explicit assumptions and limitations.
+Python research into equity market exposure and macroeconomic associations across
+eight national stock markets. The project combines financial data preparation,
+econometric modelling, diagnostic checks and reproducible reporting.
 
-The analysis includes:
+[Explore the analysis notebook](analysis.ipynb).
 
-- OLS market exposure, HAC inference, residual diagnostics and beta stability.
-- Pooled and fixed-effects panel models with lagged macroeconomic variables.
-- Euro-area NEER slope comparisons and country-clustered inference.
-- Driscoll–Kraay covariance and global-recession-year sensitivity checks.
-- Matched-sample comparisons using supplementary total-return indices.
-- Leave-one-country-out diagnostics, residual correlations and CR2 sensitivity.
+The daily study examines Siemens' exposure to the DAX using **5,290 paired daily
+returns** from January 2006 to October 2026. The monthly study uses **1,991
+country-month observations** from January 2006 to September 2026 to examine
+associations between equity returns, inflation, policy rates and exchange-rate
+appreciation.
 
-Open [the analysis notebook](analysis.ipynb) to inspect the implementation,
-equations, validation checks, interpretation and references.
+| Research component | Implementation |
+|---|---|
+| Market exposure and stability | OLS market model, conventional and HAC inference, residual diagnostics, interaction tests and rolling beta |
+| Macroeconomic panel analysis | Four pooled and fixed-effects specifications, including country and calendar-month effects and a euro-area exchange-rate interaction |
+| Robustness and uncertainty | Country-clustered inference, Driscoll–Kraay and CR2 sensitivity, recession-year exclusions and leave-one-country-out refits |
+| Data comparability | Matched-sample comparisons between the original equity benchmarks and supplementary total-return indices |
 
-The workflow uses pandas, NumPy, SciPy, statsmodels and Matplotlib. All 43 code
-cells were executed sequentially in a fresh Python 3.13 kernel using the supplied
-local workbook. All 22 analytical tables matched the previously executed working
-notebook at displayed precision. Thirteen existing CSV exports also matched after
-parsing, with zero numerical differences. The software-version table differs
-because the verification environment uses different package versions, recorded in
-`requirements.txt`. The committed notebook has cleared outputs.
+The daily market model estimates a Siemens beta of approximately **1.15**. In the
+monthly panel, the estimated euro-minus-non-euro exchange-rate slope difference
+is negative and statistically inconclusive under the primary country-clustered
+inference. The notebook interprets these findings as historical associations and
+discusses the limitations of eight country clusters, CPI publication timing and
+differences in benchmark dividend conventions.
 
-To reproduce the analysis, supply an authorised workbook as described in
+The implementation uses **pandas, NumPy, SciPy, statsmodels and Matplotlib**.
+Input checks validate dates, numerical entries, country coverage and consecutive
+months. Further assertions check transformations, common estimation samples and
+finite model results. Reusable functions handle repeated estimation and table
+formatting, while figures and CSV exports support inspection of the results.
+
+All **43 code cells** completed sequentially in a fresh Python 3.13 kernel with
+the supplied local workbook. The 22 analytical tables matched the previously
+executed working notebook at displayed precision, and 13 existing CSV exports
+matched after parsing with zero numerical differences. Package versions for the
+verification environment are recorded in `requirements.txt`. The repository
+notebook has cleared outputs.
+
+To reproduce the analysis, supply an authorised local workbook as described in
 [the data requirements](data/README.md), then run:
 
 ```powershell
