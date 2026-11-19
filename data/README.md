@@ -1,6 +1,26 @@
 # Data requirements
 
-Supply an authorised local workbook at `data/market_macro_data.xlsx`.
+Supply an authorised local workbook at `data/market_macro_data.xlsx` to reproduce
+the original empirical analysis.
+
+For a public demonstration, use [the synthetic workbook](../examples/synthetic_market_macro_data.xlsx).
+Every numerical observation is artificial and generated independently of the
+original market data. The original Bloomberg dataset is excluded because
+Bloomberg restricts redistribution of downloaded data.
+[Bloomberg API guidance](https://biblioteche.unipv.it/wp-content/uploads/2022/02/01-usi-Bloomberg-v2022.pdf)
+
+In a fresh clone, copy the example into the expected input location before
+running the notebook or `run_analysis.py`:
+
+```powershell
+Copy-Item -LiteralPath examples/synthetic_market_macro_data.xlsx -Destination data/market_macro_data.xlsx
+```
+
+The example preserves the worksheet structure and covers the required date
+windows. Synthetic observations produce different estimates and sample sizes.
+The notebook's empirical interpretations and the main README's reported findings
+refer to the original dataset. The example demonstrates execution and input
+formatting.
 
 The original analysis used Bloomberg-derived equity and CPI observations and
 policy-rate and nominal effective exchange-rate inputs documented in the

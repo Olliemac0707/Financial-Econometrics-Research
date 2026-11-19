@@ -17,3 +17,6 @@ data/*
 *.png
 *.jpg
 *.jpeg
+
+# Publish only the explicitly labelled synthetic workbook.
+!/examples/synthetic_market_macro_data.xlsx

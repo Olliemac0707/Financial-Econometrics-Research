@@ -39,7 +39,15 @@ matched after parsing with zero numerical differences. Package versions for the
 verification environment are recorded in `requirements.txt`. The repository
 notebook has cleared outputs.
 
-To reproduce the analysis, supply an authorised local workbook as described in
+The original Bloomberg dataset is excluded because Bloomberg restricts
+redistribution of downloaded data. The public [synthetic workbook](examples/synthetic_market_macro_data.xlsx)
+contains independently generated artificial observations for demonstrating the
+code. All 43 code cells execute successfully with this example. Its results are
+illustrative. The empirical findings above and the
+notebook's written interpretations concern the original dataset.
+[Bloomberg API guidance](https://biblioteche.unipv.it/wp-content/uploads/2022/02/01-usi-Bloomberg-v2022.pdf)
+
+To reproduce the empirical analysis, supply an authorised local workbook as described in
 [the data requirements](data/README.md), then run:
 
 ```powershell
